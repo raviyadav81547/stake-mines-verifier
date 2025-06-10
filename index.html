@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dazzler Bot - Stake Mines Verifier</title>
+    <style>
+        body { font-family: Arial; background: #111; color: #fff; text-align: center; }
+        .grid { display: grid; grid-template-columns: repeat(5, 50px); gap: 5px; justify-content: center; }
+        .cell { width: 50px; height: 50px; display: flex; justify-content: center; align-items: center; font-size: 24px; border: 1px solid #444; }
+    </style>
+</head>
+<body>
+    <h1>Dazzler Bot</h1>
+    <form method="POST">
+        <input name="server_seed" placeholder="Unhashed Server Seed" required><br>
+        <input name="client_seed" placeholder="Client Seed" required><br>
+        <input name="nonce" type="number" placeholder="Nonce" required><br>
+        <input name="mines" type="number" placeholder="Mine Count" required><br>
+        <button type="submit">Generate Board</button>
+    </form>
+    {% if board %}
+    <div class="grid">
+        {% for tile in board %}
+            <div class="cell">{{ tile }}</div>
+        {% endfor %}
+    </div>
+    {% endif %}
+</body>
+</html>
